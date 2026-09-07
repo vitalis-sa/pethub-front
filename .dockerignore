@@ -1,0 +1,14 @@
+node_modules
+.agents
+.git
+.output
+.tanstack
+.wrangler
+dist
+build
+.env
+.env.*
+npm-debug.log
+yarn-error.log
+bun.lock
+bun.lockb
