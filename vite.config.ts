@@ -15,4 +15,7 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
   ],
+  preview: {
+    allowedHosts: true, // Allow all hosts for Cloud Run
+  },
 });
