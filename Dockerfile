@@ -25,12 +25,13 @@ ENV PORT=8080
 ENV HOST=0.0.0.0
 
 # Copy built output and necessary files from builder
-# TanStack Start with Vite typically outputs to .output
-COPY --from=builder /app/.output ./.output
+# Vite typically outputs to dist
+COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
 
 # Expose the Cloud Run port
 EXPOSE 8080
 
-# Start the Node.js server
-CMD ["node", ".output/server/index.mjs"]
+# Start the app using Vite's preview command
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "8080"]
