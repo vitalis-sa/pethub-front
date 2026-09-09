@@ -35,4 +35,4 @@ COPY --from=builder /app/vite.config.ts ./vite.config.ts
 EXPOSE 8080
 
 # Start the app using Vite's preview command
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["sh", "-c", "npm run preview -- --host 0.0.0.0 --port $PORT"]
